@@ -3,15 +3,12 @@ import libhousy
 
 def main(robot: libhousy.robot):
     # Here is where your recurring code will go
-    robot.controller.getAxis(robot.controller.Axis.rTrigger)
-    robot.controller.getButton(robot.controller.Button.rBumper)
-    robot.shootWheel.Set(1)
-    if  robot.controller.getAxis(robot.controller.Axis.rTrigger) >=.8:
+    if  robot.controller.getButton(robot.controller.Button.rBumper):
         robot.shootWheel.Set(1)
     else:
         robot.shootWheel.Set(0)
 
-        if robot.controller.getButton(robot.controller.Button.rBumper):
+        if robot.controller.getAxis(robot.controller.Axis.rTrigger) >=.8:
             robot.beltZ1.Set(-0.8)
             robot.beltZ2.Set(-0.8)
             robot.beltZ3.Set(1)
